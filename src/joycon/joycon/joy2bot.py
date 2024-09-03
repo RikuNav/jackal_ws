@@ -20,7 +20,7 @@ class Joy2Bot(Node):
         )
 
         #'/platform/motors/cmd_drive'
-        self.publisher = self.create_publisher(Joy, 
+        self.publisher = self.create_publisher(Drive, 
                                                 '/test', 
                                                 QoSProfile(
                                                     reliability=QoSReliabilityPolicy.BEST_EFFORT,
@@ -30,6 +30,7 @@ class Joy2Bot(Node):
                                             )
 
     def joycon_callback(self, msg):
+        self.get_logger().info(str(msg.axes))
         self.publisher.publish(msg)
 
 def main(args=None):
