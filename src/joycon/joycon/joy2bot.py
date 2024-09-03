@@ -26,6 +26,9 @@ class Joy2Bot(Node):
         self.wheels_length = self.get_parameter('wheels_length').get_parameter_value().double_value
         self.wheels_radius = self.get_parameter('wheels_radius').get_parameter_value().double_value
 
+        self.timer_period = 0.1
+        self.create_timer(self.timer_period, self.timer_callback)
+
         # Joycon Subscription
         self.create_subscription(
             Joy,
@@ -52,22 +55,23 @@ class Joy2Bot(Node):
     # Message transformation to left and right speeds
     def joycon_callback(self, msg):
         # Getting raw joystick data
-        left_stick_x = msg.axes[0]
-        left_stick_y = msg.axes[1]
+        self.left_stick_x = msg.axes[0]
+        self.left_stick_y = msg.axes[1]
 
-        left_bumper = msg.buttons[4]
-        right_bumper = msg.buttons[5]
+        self.left_bumper = msg.buttons[4]
+        self.right_bumper = msg.buttons[5]
 
+    def timer_callback(self):
         # Getting Corresponding Linear and Angular Speeds
         linear_speed = 0.
         angular_speed = 0.
 
-        if left_bumper:
-            linear_speed = self.max_slow_linear_speed*left_stick_y
-            angular_speed = self.max_slow_angular_speed*left_stick_x
-        elif right_bumper:
-            linear_speed = self.max_fast_linear_speed*left_stick_y
-            angular_speed = self.max_fast_angular_speed*left_stick_x
+        if self.left_bumper:
+            linear_speed = self.max_slow_linear_speed*self.left_stick_y
+            angular_speed = self.max_slow_angular_speed*self.left_stick_x
+        elif self.right_bumper:
+            linear_speed = self.max_fast_linear_speed*self.left_stick_y
+            angular_speed = self.max_fast_angular_speed*self.left_stick_x
 
         # Inverse Kinematics
         left_wheel_speed = (2*linear_speed-self.wheels_length*angular_speed)/(2*self.wheels_radius)
