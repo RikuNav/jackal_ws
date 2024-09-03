@@ -34,8 +34,8 @@ class Joy2Bot(Node):
         left_stick_y = msg.axes[1]
 
         jackal_msg = Drive()
-        jackal_msg.left = left_stick_x
-        jackal_msg.right = left_stick_y
+        jackal_msg.mode = Drive.MODE_VELOCITY
+        jackal_msg.drivers = [left_stick_y, left_stick_x]
 
         self.publisher.publish(jackal_msg)
 
