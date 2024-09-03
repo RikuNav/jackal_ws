@@ -48,4 +48,5 @@ def generate_launch_description():
     ld = LaunchDescription()
     ld.add_action(node_joy)
     ld.add_action(joy2bot)
+    ld.add_action(micro_ros_bridge)
     return ld
