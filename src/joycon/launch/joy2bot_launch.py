@@ -36,6 +36,15 @@ def generate_launch_description():
         parameters=[jackal_config]
     )
 
+    micro_ros_bridge = Node(
+        package='micro_ros_agent',
+        executable='micro_ros_agent',
+        output='screen',
+        name='micro_ros_agent',
+        arguments=['serial', '--dev', '/dev/ttyACM0']
+    )
+
+
     ld = LaunchDescription()
     ld.add_action(node_joy)
     ld.add_action(joy2bot)
