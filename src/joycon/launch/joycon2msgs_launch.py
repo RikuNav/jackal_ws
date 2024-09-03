@@ -20,6 +20,15 @@ def generate_launch_description():
         parameters=[filepath_config_joy]
     )
 
+    joy2bot = Node(
+        namespace='joy_teleop',
+        package='joycon',
+        executable='joy2bot',
+        output='screen',
+        name='joy2bot',
+    )
+
     ld = LaunchDescription()
     ld.add_action(node_joy)
+    ld.add_action(joy2bot)
     return ld
