@@ -41,7 +41,7 @@ def generate_launch_description():
         executable='micro_ros_agent',
         output='screen',
         name='micro_ros_agent',
-        arguments=['serial', '--dev', '/dev/ttyACM0']
+        arguments=['serial', '--dev', '/dev/ttyACM0'],
     )
 
 
