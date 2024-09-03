@@ -20,7 +20,7 @@ class Joy2Bot(Node):
         )
 
         #'/platform/motors/cmd_drive'
-        self.publisher = self.create_publisher(Joy, 
+        self.publisher = self.create_publisher(Drive, 
                                                 '/test', 
                                                 QoSProfile(
                                                     reliability=QoSReliabilityPolicy.BEST_EFFORT,
@@ -30,8 +30,14 @@ class Joy2Bot(Node):
                                             )
 
     def joycon_callback(self, msg):
-        self.get_logger().info(str(msg.axes[0]))
-        self.publisher.publish(msg)
+        left_stick_x = msg.axes[0]
+        left_stick_y = msg.axes[1]
+
+        jackal_msg = Drive()
+        jackal_msg.left = left_stick_x
+        jackal_msg.right = left_stick_y
+
+        self.publisher.publish(jackal_msg)
 
 def main(args=None):
     rclpy.init(args=args)
