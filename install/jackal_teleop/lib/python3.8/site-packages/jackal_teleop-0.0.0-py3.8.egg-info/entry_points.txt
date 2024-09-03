@@ -1,3 +1,0 @@
-[console_scripts]
-vel2bot = jackal_teleop.vel2bot:main
-
