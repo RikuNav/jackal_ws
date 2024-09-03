@@ -41,7 +41,7 @@ class Joy2Bot(Node):
         # Jackal Publisher
         #'/platform/motors/cmd_drive'
         self.publisher = self.create_publisher(Drive, 
-                                                '/test', 
+                                                '/platform/motors/cmd_drive', 
                                                 QoSProfile(
                                                     reliability=QoSReliabilityPolicy.BEST_EFFORT,
                                                     history=QoSHistoryPolicy.KEEP_LAST,
