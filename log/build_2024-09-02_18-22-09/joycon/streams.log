@@ -1,0 +1,25 @@
+[11.555s] Invoking command in '/home/tomatoxplorers/jackal_ws/src/joycon': PYTHONPATH=/home/tomatoxplorers/jackal_ws/build/joycon/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tomatoxplorers/jackal_ws/install/joycon/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/joycon build --build-base /home/tomatoxplorers/jackal_ws/build/joycon/build install --record /home/tomatoxplorers/jackal_ws/build/joycon/install.log --single-version-externally-managed install_data
+[13.581s] running egg_info
+[13.583s] creating ../../build/joycon/joycon.egg-info
+[13.585s] writing ../../build/joycon/joycon.egg-info/PKG-INFO
+[13.587s] writing dependency_links to ../../build/joycon/joycon.egg-info/dependency_links.txt
+[13.588s] writing entry points to ../../build/joycon/joycon.egg-info/entry_points.txt
+[13.589s] writing requirements to ../../build/joycon/joycon.egg-info/requires.txt
+[13.589s] writing top-level names to ../../build/joycon/joycon.egg-info/top_level.txt
+[13.590s] writing manifest file '../../build/joycon/joycon.egg-info/SOURCES.txt'
+[13.593s] reading manifest file '../../build/joycon/joycon.egg-info/SOURCES.txt'
+[13.596s] writing manifest file '../../build/joycon/joycon.egg-info/SOURCES.txt'
+[13.597s] running build
+[13.597s] running install
+[13.610s] running install_data
+[13.611s] creating /home/tomatoxplorers/jackal_ws/install/joycon/share/ament_index
+[13.612s] creating /home/tomatoxplorers/jackal_ws/install/joycon/share/ament_index/resource_index
+[13.613s] creating /home/tomatoxplorers/jackal_ws/install/joycon/share/ament_index/resource_index/packages
+[13.613s] copying resource/joycon -> /home/tomatoxplorers/jackal_ws/install/joycon/share/ament_index/resource_index/packages
+[13.613s] copying package.xml -> /home/tomatoxplorers/jackal_ws/install/joycon/share/joycon
+[13.614s] running install_egg_info
+[13.631s] Copying ../../build/joycon/joycon.egg-info to /home/tomatoxplorers/jackal_ws/install/joycon/lib/python3.8/site-packages/joycon-0.0.0-py3.8.egg-info
+[13.636s] running install_scripts
+[13.801s] Installing joycon2msgs script to /home/tomatoxplorers/jackal_ws/install/joycon/lib/joycon
+[13.802s] writing list of installed files to '/home/tomatoxplorers/jackal_ws/build/joycon/install.log'
+[13.885s] Invoked command in '/home/tomatoxplorers/jackal_ws/src/joycon' returned '0': PYTHONPATH=/home/tomatoxplorers/jackal_ws/build/joycon/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tomatoxplorers/jackal_ws/install/joycon/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/joycon build --build-base /home/tomatoxplorers/jackal_ws/build/joycon/build install --record /home/tomatoxplorers/jackal_ws/build/joycon/install.log --single-version-externally-managed install_data
