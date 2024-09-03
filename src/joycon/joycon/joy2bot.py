@@ -20,7 +20,7 @@ class Joy2Bot(Node):
         )
 
         #'/platform/motors/cmd_drive'
-        self.publisher = self.create_publisher(Drive, 
+        self.publisher = self.create_publisher(Joy, 
                                                 '/test', 
                                                 QoSProfile(
                                                     reliability=QoSReliabilityPolicy.BEST_EFFORT,
@@ -30,9 +30,7 @@ class Joy2Bot(Node):
                                             )
 
     def joycon_callback(self, msg):
-        self.get_logger().info(f'I heard: "{msg.data}"')
         self.publisher.publish(msg)
-        self.get_logger().info(f'Message republished to output topic')
 
 def main(args=None):
     rclpy.init(args=args)
