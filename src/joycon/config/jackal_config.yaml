@@ -1,0 +1,10 @@
+joy2bot:
+  ros__parameters:
+    wheels_length: 0.3765
+    wheels_radius: 0.095
+    fast:
+      linear-speed: 1.0
+      angular-speed: 3.14
+    slow:
+      linear-speed: 0.4
+      angular-speed: 0.6

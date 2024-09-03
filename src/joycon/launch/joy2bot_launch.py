@@ -1,15 +1,22 @@
+import os
+
+from ament_index_python import get_package_share_directory
 from launch import LaunchContext, LaunchDescription
 from launch.substitutions import EnvironmentVariable, PathJoinSubstitution
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
+    package_name = 'joycon'
+
     lc = LaunchContext()
     joy_type = EnvironmentVariable('CPR_JOY_TYPE', default_value='logitech')
 
     filepath_config_joy = PathJoinSubstitution(
-        [FindPackageShare('jackal_control'), 'config', ('teleop_' + joy_type.perform(lc) + '.yaml')]
+        [FindPackageShare(package_name), 'config', ('teleop_' + joy_type.perform(lc) + '.yaml')]
     )
+
+    jackal_config = os.path.join(get_package_share_directory(package_name), 'config', 'jackal_config.yaml')
 
     node_joy = Node(
         namespace='joy_teleop',
@@ -26,6 +33,7 @@ def generate_launch_description():
         executable='joy2bot',
         output='screen',
         name='joy2bot',
+        parameters=[jackal_config]
     )
 
     ld = LaunchDescription()
