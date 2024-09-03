@@ -30,7 +30,7 @@ class Joy2Bot(Node):
                                             )
 
     def joycon_callback(self, msg):
-        self.get_logger().info(str(type(msg.axes)))
+        self.get_logger().info(str(msg.axes[0]))
         self.publisher.publish(msg)
 
 def main(args=None):
