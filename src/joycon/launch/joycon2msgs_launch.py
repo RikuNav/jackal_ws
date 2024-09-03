@@ -20,16 +20,6 @@ def generate_launch_description():
         parameters=[filepath_config_joy]
     )
 
-    node_teleop_twist_joy = Node(
-        namespace='joy_teleop',
-        package='teleop_twist_joy',
-        executable='teleop_node',
-        output='screen',
-        name='teleop_twist_joy_node',
-        parameters=[filepath_config_joy]
-    )
-
     ld = LaunchDescription()
     ld.add_action(node_joy)
-    ld.add_action(node_teleop_twist_joy)
     return ld
