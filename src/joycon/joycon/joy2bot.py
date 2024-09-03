@@ -17,20 +17,21 @@ class Joy2Bot(Node):
         self.declare_parameter('wheels_length', 0.3765)
         self.declare_parameter('wheels_radius', 0.095)
 
-        self.left_bumper = 0
-        self.right_bumper = 0
-        self.left_stick_x = 0.
-        self.left_stick_y = 0.
-
         # Get parameters into Variables
         self.max_fast_linear_speed = self.get_parameter('fast.linear-speed').get_parameter_value().double_value
         self.max_fast_angular_speed = self.get_parameter('fast.angular-speed').get_parameter_value().double_value
         self.max_slow_linear_speed = self.get_parameter('slow.linear-speed').get_parameter_value().double_value
         self.max_slow_angular_speed = self.get_parameter('slow.angular-speed').get_parameter_value().double_value
-
         self.wheels_length = self.get_parameter('wheels_length').get_parameter_value().double_value
         self.wheels_radius = self.get_parameter('wheels_radius').get_parameter_value().double_value
 
+        # Declare Variables
+        self.left_bumper = 0
+        self.right_bumper = 0
+        self.left_stick_x = 0.
+        self.left_stick_y = 0.
+
+        # Timers
         self.timer_period = 0.1
         self.create_timer(self.timer_period, self.timer_callback)
 
@@ -47,7 +48,6 @@ class Joy2Bot(Node):
         )
 
         # Jackal Publisher
-        #'/platform/motors/cmd_drive'
         self.publisher = self.create_publisher(Drive, 
                                                 '/platform/motors/cmd_drive', 
                                                 QoSProfile(
