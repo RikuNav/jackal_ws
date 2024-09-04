@@ -1,0 +1,21 @@
+#!/bin/bash
+
+DEVICE_PATH="/dev/ttyACM0"  # Jackal Serial
+USER="tomatoxplorers"
+LOG_FILE="/home/tomatoxplorers/jackal_ws/log/joycon_teleop.log"  # Update to a writable path
+
+while true; do
+    if [ -e "$DEVICE_PATH" ]; then
+        # Change ownership (requires proper permissions or running as root)
+        chown $USER $DEVICE_PATH
+        echo "Device detected and ownership changed at $(date)" >> "$LOG_FILE"
+        break
+    fi
+    sleep 5  # Check every 5 seconds
+done
+
+# Source the ROS2 setup script with absolute path
+source /home/tomatoxplorers/jackal_ws/install/setup.bash
+
+# Run the ROS2 launch command
+ros2 launch joycon joy2bot_launch.py
